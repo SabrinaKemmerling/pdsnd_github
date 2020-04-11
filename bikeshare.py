@@ -17,8 +17,8 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    city_list = ['chicago', 'new york city', 'washington', 'all']   
-    city = input("Which city would you like to look at: Chicago, New York  City, Washington or all?").lower()
+    city_list = ['chicago', 'new york city', 'washington', 'all']
+    city = input("Which city would you like to look at: Chicago, New York City, Washington or all?").lower()
     while city not in city_list:
         print("Please enter a valid value!", end=' ')
         city = input("Please try again: ")
@@ -54,7 +54,7 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    
+
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
@@ -70,7 +70,7 @@ def load_data(city, month, day):
         # use the index of the months list to get the corresponding int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    
+
         # filter by month to create the new dataframe
         df = df[df['month'] == month]
 
@@ -158,13 +158,13 @@ def user_stats(df,city):
     print('Count of user types: ',user_types)
 
     # TO DO: Display counts of gender and earliest, most recent, and most common year of birth
-    if city != 'washington': 
+    if city != 'washington':
           gender_count = df['Gender'].value_counts()
           print('Count of gender: ',gender_count)
-          
+
           earliest_birth_year = df['Birth Year'].min()
           print('Earliest birth year: ',earliest_birth_year)
-          
+
           recent_birth_year = df['Birth Year'].max()
           print('Recent birth year: ',recent_birth_year)
 
